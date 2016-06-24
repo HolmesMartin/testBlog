@@ -1,4 +1,4 @@
-import grails.util.GrailsUtil
+import grails.util.*
 
 class BootStrap {
 

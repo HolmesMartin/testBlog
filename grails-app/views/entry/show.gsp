@@ -60,6 +60,15 @@
 					
 				</li>
 				</g:if>
+				
+				<g:if test="${entryInstance?.author}">
+				<li class="fieldcontain">
+					<span id="author-label" class="property-label"><g:message code="entry.author.label" default="Author" /></span>
+					
+						<span class="property-value" aria-labelledby="author-label">${entryInstance?.author}</span>
+					
+				</li>
+				</g:if>
 			
 			</ol>
 			<g:if test="${session.user}">

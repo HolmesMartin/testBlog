@@ -20,3 +20,11 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: entryInstance, field: 'Author', 'error')} required">
+	<label for="Author">
+		<g:message code="entry.author.label" default="Author" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="author" required="" value="${session.user.toString()}"/>
+</div>
+

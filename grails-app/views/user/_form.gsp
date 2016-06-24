@@ -29,21 +29,4 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'entries', 'error')} ">
-	<label for="entries">
-		<g:message code="user.entries.label" default="Entries" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${userInstance?.entries?}" var="e">
-    <li><g:link controller="entry" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="entry" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'entry.label', default: 'Entry')])}</g:link>
-</li>
-</ul>
-
-
-</div>
 
