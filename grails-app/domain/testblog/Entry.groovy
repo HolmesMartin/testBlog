@@ -10,12 +10,11 @@ class Entry {
 		author()
 		comments(nullable:true)
 	}
-
-	static belongsTo = [author:User]
+	
+	static hasMany = [comments:Comment]
 	String author
 	String title
 	String summary
 	Date dateCreated
 	Date lastUpdated
-	Comment[] comments
 }
