@@ -4,10 +4,11 @@ class Entry {
 
 	static constraints = {
 		title()
-		summary(maxSize:1000)
+		summary(maxSize:5000)
 		dateCreated()
 		lastUpdated()
 		author()
+		comments(nullable:true)
 	}
 
 	static belongsTo = [author:User]
@@ -16,5 +17,5 @@ class Entry {
 	String summary
 	Date dateCreated
 	Date lastUpdated
-  
+	Comment[] comments
 }

@@ -79,6 +79,13 @@
 					</fieldset>
 				</g:form>
 			</g:if>
+			<g:else>
+				<g:form url="[resource:entryInstance, action:'comment']" method="PUT">
+					<fieldset class="buttons">
+						<g:actionSubmit class="comment" action="comment" value="${message(code: 'default.button.comment.label', default: 'Comment')}"/>
+					</fieldset>
+				</g:form>
+			</g:else>
 		</div>
 	</body>
 </html>

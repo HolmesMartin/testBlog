@@ -17,8 +17,13 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a><div style = "float:right;"><g:loginControl/></div></div>
+		<div id="grailsLogo" role="banner"><a href="/testBlog/"><asset:image src="grails_logo.png" alt="Grails"/></a><div class = "logSearchFloat"><g:loginControl/><div><g:form controller="Entry" method="post" >
+		 <input type='text' name='value' value="${value}"/>
+ <g:actionSubmit value="Search"/>
+ </g:form></div></div></div>
+		 
 		<g:layoutBody/>
+		
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 	</body>

@@ -16,7 +16,7 @@
 		<g:message code="entry.summary.label" default="Summary" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textArea name="summary" cols="40" rows="5" maxlength="1000" required="" value="${entryInstance?.summary}"/>
+	<g:textArea name="summary" cols="40" rows="5" maxlength="5000" required="" value="${entryInstance?.summary}"/>
 
 </div>
 
