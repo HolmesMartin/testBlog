@@ -29,8 +29,10 @@
   </div>  
  </g:each>
 </div>
-		<div class="pagination">
+	<g:if test="${entryInstanceCount>10}">
+		<div class="pagination col-md-12 center-block">
 			<g:paginate total="${entryInstanceCount ?: 0}" />
 		</div>
+	</g:if>
 	</body>
 </html>
