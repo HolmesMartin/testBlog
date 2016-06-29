@@ -19,20 +19,19 @@
 			</div>
 		</g:if>
 		<div class="list col-md-12 center-block">
- <g:each in="${entryInstanceList}" status="i" var="entryInstance">
-  <div class="entry">
-   
-   <h2><g:link action="show" id="${entryInstance.id}">${entryInstance.title}</g:link></h2>
-   <div class = "summary"><p>${entryInstance.summary}</p></div>
-   <p><b>${entryInstance.author}</b>    
-   <span style = "float: right;" class="entry-date">${entryInstance.lastUpdated}</span></p>            
-  </div>  
- </g:each>
-</div>
-	<g:if test="${entryInstanceCount>10}">
-		<div class="pagination col-md-12 center-block">
-			<g:paginate total="${entryInstanceCount ?: 0}" />
+			<g:each in="${entryInstanceList}" status="i" var="entryInstance">
+				<div class="entry">
+					<h2 id="blogId${i}"><g:link action="show" id="${entryInstance.id}">${entryInstance.title}</g:link></h2>
+					<div class = "summary"><p>${entryInstance.summary}</p></div>
+					<p><b>${entryInstance.author}</b>    
+					<span style = "float: right;" class="entry-date">${entryInstance.lastUpdated}</span></p>            
+				</div>  
+			</g:each>
 		</div>
-	</g:if>
+		<g:if test="${entryInstanceCount>10}">
+			<div class="pagination col-md-12 center-block">
+				<g:paginate total="${entryInstanceCount ?: 0}" />
+			</div>
+		</g:if>
 	</body>
 </html>

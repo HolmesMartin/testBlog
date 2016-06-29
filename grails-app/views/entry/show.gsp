@@ -8,6 +8,9 @@
 		<title>${entryInstance.title}</title>
 	</head>
 	<body>
+		<g:if test="${flash.message}">
+			<div class="message" role="status">${flash.message}</div>
+		</g:if>
 		<a href="#show-entry" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<g:if test="${session.user}">
 			<div class="nav" role="navigation">
@@ -19,19 +22,12 @@
 			</div>
 		</g:if>
 		<div id="show-entry" class="content scaffold-show" role="main">
-			<h1>${entryInstance.title}</h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-
-			
-			  <div class="entry col-md-12">
-			   
-			   
-			   <div class = "col-md-10">         
-                   <p>${entryInstance.summary}</p>
-               </div>
-			 </div> 
+			<h1 id="blogTitle">${entryInstance.title}</h1>
+			<div id="blogContent" class="entry col-md-12">
+				<div class = "col-md-10">         
+                	<p>${entryInstance.summary}</p>
+				</div>
+			</div> 
             <div class = "col-md-12">            
                 <b>${entryInstance.author}</b>    
                 <span style = "float: right;" class="entry-date">${entryInstance.lastUpdated}</span>

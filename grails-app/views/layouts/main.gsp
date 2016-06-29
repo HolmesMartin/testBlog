@@ -26,7 +26,7 @@
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner"><a href="/testBlog/"><asset:image src="grails_logo.png" alt="Grails"/></a><div class = "logSearchFloat"><g:loginControl/><div><g:form controller="Entry" method="post" >
-		 <input type='text' name='value' value="${value}"/>
+		 <input id="blogSearch" type='text' name='value' value="${value}"/>
  <g:actionSubmit value="Search"/>
  </g:form></div></div></div>
 		 
