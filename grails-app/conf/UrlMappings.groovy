@@ -1,13 +1,18 @@
 class UrlMappings {
 
 	static mappings = {
+<<<<<<< HEAD
         "/$controller/$action?/$title?(.$format)?"{
+=======
+        "/$controller/$action?/$id?(.$format)?/$title?"{
             constraints {
-                // apply constraints here
+                
             }
         }
+        
+		"/entry/show/$id"(controller:"entry", action:"redirectAgain")
 
-        "/"(controller:"Entry")
+        "/"(controller:"entry")
         "500"(view:'/error')
 		
 	}
