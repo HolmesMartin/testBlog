@@ -2,7 +2,7 @@ package testblog
 
 class EntryController {
 
-	def beforeInterceptor = [action:this.&auth, except:["index", "show", "search"]]
+	def beforeInterceptor = [action:this.&auth, except:["index", "show", "redirectAgain", "search"]]
 
 	def auth() {
 		if(!session.user) {
