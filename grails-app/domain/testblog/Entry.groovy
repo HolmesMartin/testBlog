@@ -17,4 +17,8 @@ class Entry {
 	String summary
 	Date dateCreated
 	Date lastUpdated
+	
+	static mapping = {
+		sort dateCreated: "desc"
+	}
 }

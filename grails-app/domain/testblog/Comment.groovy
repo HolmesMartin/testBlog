@@ -1,6 +1,5 @@
 package testblog
 
-import java.util.Date;
 
 class Comment {
 
@@ -12,6 +11,7 @@ class Comment {
 	}
 
 	static belongsTo = [entry:Entry]
+	String entry
 	String content
 	Date dateCreated
 	Date lastUpdated

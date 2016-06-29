@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'entry.label', default: 'Entry')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
+		<title>${entryInstance.title}</title>
 	</head>
 	<body>
 		<a href="#show-entry" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -19,58 +19,24 @@
 			</div>
 		</g:if>
 		<div id="show-entry" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+			<h1>${entryInstance.title}</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list entry">
+
 			
-				<g:if test="${entryInstance?.title}">
-				<li class="fieldcontain">
-					<span id="title-label" class="property-label"><g:message code="entry.title.label" default="Title" /></span>
-					
-						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${entryInstance}" field="title"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${entryInstance?.summary}">
-				<li class="fieldcontain">
-					<span id="summary-label" class="property-label"><g:message code="entry.summary.label" default="Summary" /></span>
-					
-						<span class="property-value" aria-labelledby="summary-label"><g:fieldValue bean="${entryInstance}" field="summary"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${entryInstance?.dateCreated}">
-				<li class="fieldcontain">
-					<span id="dateCreated-label" class="property-label"><g:message code="entry.dateCreated.label" default="Date Created" /></span>
-					
-						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${entryInstance?.dateCreated}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${entryInstance?.lastUpdated}">
-				<li class="fieldcontain">
-					<span id="lastUpdated-label" class="property-label"><g:message code="entry.lastUpdated.label" default="Last Updated" /></span>
-					
-						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${entryInstance?.lastUpdated}" /></span>
-					
-				</li>
-				</g:if>
-				
-				<g:if test="${entryInstance?.author}">
-				<li class="fieldcontain">
-					<span id="author-label" class="property-label"><g:message code="entry.author.label" default="Author" /></span>
-					
-						<span class="property-value" aria-labelledby="author-label">${entryInstance?.author}</span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
+			  <div class="entry col-md-12">
+			   
+			   
+			   <div class = "col-md-10">         
+                   <p>${entryInstance.summary}</p>
+               </div>
+			 </div> 
+            <div class = "col-md-12">            
+                <b>${entryInstance.author}</b>    
+                <span style = "float: right;" class="entry-date">${entryInstance.lastUpdated}</span>
+            </div>        
+			  
 			<g:if test="${session.user}">
 				<g:form url="[resource:entryInstance, action:'delete']" method="DELETE">
 					<fieldset class="buttons">
@@ -81,8 +47,8 @@
 			</g:if>
 			<g:else>
 				<g:form url="[resource:entryInstance, action:'comment']" method="PUT">
-					<fieldset class="buttons">
-						<g:actionSubmit class="comment" action="comment" value="${message(code: 'default.button.comment.label', default: 'Comment')}"/>
+					<fieldset class="buttons col-md-12">
+						<g:actionSubmit action="comment" value="${message(code: 'default.button.comment.label', default: 'Comment')}"/>
 					</fieldset>
 				</g:form>
 			</g:else>

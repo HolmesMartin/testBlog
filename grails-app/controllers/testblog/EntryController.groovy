@@ -14,7 +14,7 @@ class EntryController {
 	def scaffold = Entry
 	
 	def search = {
-		def Entrys = Entry.findAllByTitleIlike("${params.value}%")
+		def Entrys = Entry.findAllByTitleIlike("%${params.value}%")
 		render(view:'search', model: [value: params.value, Entrys: Entrys])
 	   }
 	

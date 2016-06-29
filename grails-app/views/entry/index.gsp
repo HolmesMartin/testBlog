@@ -18,7 +18,7 @@
 				</ul>
 			</div>
 		</g:if>
-		<div class="list">
+		<div class="list col-md-12 center-block">
  <g:each in="${entryInstanceList}" status="i" var="entryInstance">
   <div class="entry">
    
