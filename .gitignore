@@ -33,5 +33,5 @@
 /target
 
 # idea and asscache files
-/.idea/*
-/.asscache
+.idea/*
+.asscache
