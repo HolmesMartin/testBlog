@@ -2,8 +2,8 @@ require 'page-object'
 
 class LoginPage
   include PageObject
-  page_url 'http://localhost:8080/blog/user/login'
-  div(:user_name, :class => 'userName')
-  div(:password, :class => 'userPassword')
-  button(:login, :value => 'loginButton')
+  page_url 'http://localhost:8080/testBlog/user/login'
+  text_field(:user_name, :id => 'login')
+  text_field(:password, :id => 'password')
+  button(:login, :class => 'save')
 end

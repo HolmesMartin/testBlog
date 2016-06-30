@@ -1,5 +1,6 @@
 Given(/^I am logged in as a blogger$/) do
   visit_page LoginPage
+  sleep 1
   on_page LoginPage do |page|
     page.user_name = 'test'
     page.password = 'test'
@@ -27,6 +28,6 @@ end
 And(/^the newly added blog post is at the top of the recent posts list$/) do
   visit_page HomePage
   on_page HomePage do |page|
-    expect(page.blog_row1).to include('This is only a test')
+    expect(page.blog_row1).to include('This is a test blog')
   end
 end
