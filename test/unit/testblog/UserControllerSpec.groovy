@@ -10,11 +10,15 @@ import spock.lang.Specification
 class UserControllerSpec extends Specification {
 
     def setup() {
+    	userController = new UserController()
+    	mockController(UserController)
     }
 
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test authentication method"() {
+    	
+    	
     }
 }

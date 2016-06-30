@@ -31,3 +31,7 @@
 
 # "temporary" build files
 /target
+
+# idea and asscache files
+/.idea/*
+/.asscache
