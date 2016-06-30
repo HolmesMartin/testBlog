@@ -21,17 +21,19 @@
 		<div class="list col-md-12 center-block">
 
  <g:each in="${entryInstanceList}" status="i" var="entryInstance">
-  <div class="entry">
+  <div class="entry row">
    <g:link action="show" id="${entryInstance.id}"> 
    	<h2 id="blogId${i}">${entryInstance.title}</h2></g:link>
-   	<div class = "summary">${entryInstance.summary}</div>
+   	<div class = "col-md-12 summary">${entryInstance.summary}</div>
 
-   		<b>${entryInstance.author}</b>    
-   		<span style = "float: right;" class="entry-date">${entryInstance.lastUpdated}</span>
-  
-              
+   		<div class = "col-md-6 text-left"><b>${entryInstance.author}</b></div>
+        <div class = "col-md-6 text-right">
+   		<span><b>Last Updated: ${entryInstance.lastUpdated}</b></span>          
+        </div>
   </div> 
+  
      <hr>
+     
  </g:each>
 </div>
 	<g:if test="${entryInstanceCount>10}">
