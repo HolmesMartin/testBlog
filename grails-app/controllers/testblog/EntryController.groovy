@@ -15,7 +15,7 @@ class EntryController {
 	
 	def search = {
 		def Entrys = Entry.findAllByTitleIlike("%${params.value}%")
-		render(view:'search', model: [value: params.value, Entrys: Entrys])
+		render(view:"search", model: [value: params.value, Entrys: Entrys])
 	   }
 
 	def redirectAgain(){

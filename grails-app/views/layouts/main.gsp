@@ -34,9 +34,9 @@
             <div class = "col-sm-4">
                 <g:loginControl/>
                 <div class ="loginOffset">
-                    <g:form  controller="Entry" method="post">
+                    <g:form  controller="Entry">
                     <g:actionSubmit class = "btn btn-primary" value="Search"/>
-                    <input id="blogSearch" type='text' name='value' value="${value}"/>
+                    <input id="blogSearch" type='text' name="value" value="${value}"/>
                     </g:form>
                 </div>
             </div>

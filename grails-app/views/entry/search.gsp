@@ -10,7 +10,7 @@
 	</head>
 	<body>
 	
-		<a href="#list-entry" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		
 		
 		<g:if test="${session.user}">
 			<div class="nav" role="navigation">
@@ -20,23 +20,29 @@
 				</ul>
 			</div>
 		</g:if>
-		<div class="list">
- <g:each var="Entry" in="${Entrys}">
-  <div class="entry">
-   
-   <g:link action="show" id="${Entry?.id}"><h2>${Entry?.title}</h2></g:link>
-   <div class = "summary"><p>${Entry?.summary}</p></div>
-   <b>${Entry?.author}</b>    
-   <span style = "float: right;" class="entry-date">${Entry?.lastUpdated}</span>          
-  </div>  
-     
-      <hr>
- </g:each>
-</div>
-		<g:if test="${entryInstanceCount>10}">
-		<div class="pagination col-md-12 center-block">
-			<g:paginate total="${entryInstanceCount ?: 0}" />
-		</div>
-	</g:if>
+    <div class="list">
+     <g:each var="Entry" in="${Entrys}">
+          <div class="entry">
+
+           <g:link action="search" id="${Entry?.id}">
+               <h2>${Entry?.title}</h2>
+           </g:link>
+           <div class = "summary">
+               <p>${Entry?.summary}</p>
+           </div>
+               <b>${Entry?.author}</b>    
+               <span style = "float: right;" class="entry-date">${Entry?.lastUpdated}</span>          
+          </div>  
+
+          <hr>
+     </g:each>
+    </div>
+        <g:if test="${Entrys.size>10}">
+            <div class="row col-md-offset-1 col-md-10">
+                <div class="pagination center-block">
+                    <g:paginate action="Search" total="${Entrys.size ?: 0}" />
+                </div>
+            </div>
+	   </g:if>
 	</body>
 </html>

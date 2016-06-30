@@ -113,15 +113,8 @@ img {
 }
 
 .footer {
-    border-radius:10px;
-    background: grey;
-    color: #000;
     clear: both;
-    font-size: 0.8em;
-    margin-top: 1.5em;
-    padding: 1em;
-    min-height: 1em;
-    opacity:.8;
+    opacity:0;
 }
 
 .footer a {
@@ -524,7 +517,7 @@ tr:hover {
 
 .pagination {
     border-top: 0;
-    margin: 0;
+    margin: 10px;
     padding: 0.3em 0.2em;
     text-align: center;
     -moz-box-shadow: 0 0 3px 1px #AAAAAA;
@@ -675,7 +668,8 @@ h2 {
     font-family: 'Lobster', cursive;
     margin: 10px 0;
 }
-hr {    
+hr {
+    margin:10px;
     height: 3px;
     border-radius: 5px;
     border-top:none;
@@ -689,4 +683,7 @@ hr {
     /* For Firefox 3.6 to 15 */
     background: radial-gradient(black 5%, rgba(229,214,172,0) 65%);
     /* Standard syntax */
+}
+img{
+    border-radius:25px;
 }
