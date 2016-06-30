@@ -15,6 +15,7 @@ class UserControllerSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test authentication method"() {
+    	
     }
 }

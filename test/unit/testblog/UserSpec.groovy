@@ -15,6 +15,8 @@ class UserSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test failing user"() {
+    	def user = new User()
+    	assertFalse user.validate()
     }
 }
