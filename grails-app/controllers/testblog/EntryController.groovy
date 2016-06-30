@@ -19,6 +19,7 @@ class EntryController {
 	   }
 
 	def redirectAgain(){
+		this.flash.message = flash.message
 		def entry = Entry.findById("${params.id}")
     	redirect uri:"/entry/show/" + params.id + "/" + (entry.title).replace(" ", "-") + "/"
 	}	

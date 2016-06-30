@@ -19,10 +19,11 @@
 			</div>
 		</g:if>
 		<div class="list col-md-12 center-block">
+
  <g:each in="${entryInstanceList}" status="i" var="entryInstance">
   <div class="entry">
    <g:link action="show" id="${entryInstance.id}"> 
-   	<h2>${entryInstance.title}</h2></g:link>
+   	<h2 id="blogId${i}">${entryInstance.title}</h2></g:link>
    	<div class = "summary">${entryInstance.summary}</div>
 
    		<b>${entryInstance.author}</b>    
@@ -40,5 +41,6 @@
 		</div>
         </div>
 	</g:if>
+
 	</body>
 </html>

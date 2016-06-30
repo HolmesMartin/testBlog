@@ -25,6 +25,7 @@
 		<g:layoutHead/>
 	</head>
 	<body>
+
 		<div class = "col-sm-12" id="grailsLogo" role="banner">
             <div class = " col-sm-8">
                 <a href="/testBlog/"><asset:image src="blog.jpeg" alt="Blog"/></a>
@@ -34,7 +35,7 @@
                 <div class ="loginOffset">
                     <g:form  controller="Entry" method="post">
                     <g:actionSubmit class = "btn btn-primary" value="Search"/>
-                    <input type='text' name='value' value="${value}"/>
+                    <input id="blogSearch" type='text' name='value' value="${value}"/>
                     </g:form>
                 </div>
             </div>
