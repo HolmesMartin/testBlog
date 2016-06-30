@@ -25,13 +25,24 @@
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="/testBlog/"><asset:image src="grails_logo.png" alt="Grails"/></a><div class = "logSearchFloat"><g:loginControl/><div><g:form controller="Entry" method="post" >
-		 <input type='text' name='value' value="${value}"/>
- <g:actionSubmit value="Search"/>
- </g:form></div></div></div>
+		<div class = "col-sm-12" id="grailsLogo" role="banner">
+            <div class = " col-sm-8">
+                <a href="/testBlog/"><asset:image src="blog.jpeg" alt="Blog"/></a>
+            </div>
+            <div class = "col-sm-4">
+                <g:loginControl/>
+                <div class ="loginOffset">
+                    <g:form  controller="Entry" method="post">
+                    <g:actionSubmit class = "btn btn-primary" value="Search"/>
+                    <input type='text' name='value' value="${value}"/>
+                    </g:form>
+                </div>
+            </div>
+        </div>
 		 
-		<g:layoutBody/>
-		
+		<div class = "col-sm-12">
+            <g:layoutBody/>
+		</div>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 	</body>

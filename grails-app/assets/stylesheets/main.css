@@ -11,21 +11,14 @@ h1, h2, h3, h4, h5, h6 {
 /* BASE LAYOUT */
 
 html {
-	background-color: #ddd;
-	background-image: -moz-linear-gradient(center top, #aaa, #ddd);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
-	background-image: linear-gradient(top, #aaa, #ddd);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#dddddd');
-	background-repeat: no-repeat;
-	height: 100%;
-	/* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
+    background-image:url(paper.jpg)
 }
 
-html.no-cssgradients {
-	background-color: #aaa;
+hr {
+height: 2.5px;
+border-radius: 5px;
+color: gray;
+background-color: gray;
 }
 
 .ie6 html {
@@ -37,19 +30,16 @@ html * {
 }
 
 body {
-	background: #ffffff;
-	color: #333333;
-	margin: 0 auto;
+    
+    margin: 0 auto;
 	max-width: 960px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-	   -moz-box-shadow: 0 0 0.3em #255b17;
-	-webkit-box-shadow: 0 0 0.3em #255b17;
-	        box-shadow: 0 0 0.3em #255b17;
+	   -moz-box-shadow: 0 0 0.3em black;
+	-webkit-box-shadow: 0 0 0.3em black;
+	        box-shadow: 0 0 0.3em black;
 }
 
-#grailsLogo {
-	background-color: #abbf78;
-}
+
 
 /* replace with .no-boxshadow body if you have modernizr available */
 .ie6 body,
@@ -65,11 +55,16 @@ body {
 }
 
 a:link, a:visited, a:hover {
-	color: #48802c;
+	color:white;
 }
 
 a:hover, a:active {
+	text-decoration:none;
 	outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
+}
+
+.entry > a:link, .entry > a:visited, .entry > a:hover{
+	color:black;
 }
 
 h1 {
@@ -108,7 +103,7 @@ img {
 }
 
 .footer {
-	background: #abbf78;
+	background:grey;
 	color: #000;
 	clear: both;
 	font-size: 0.8em;
@@ -600,11 +595,21 @@ a.skip:focus, a.skip:active {
 	left: 0px;
 }
 .summary{
-   width: 80%;
-   height: 50px; 
+   width: 85%;
+   height: 60px; 
    overflow: hidden;
    text-overflow: ellipsis;
 }
-.logSearchFloat{
+.floatRight{
 	float:right;
+}
+.floatLeft{
+	float:Left;
+}
+.loginOffset{
+    padding-left: 13px;
+}
+.col-centered{
+    float: none;
+    margin: auto;
 }

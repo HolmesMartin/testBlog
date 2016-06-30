@@ -21,18 +21,24 @@
 		<div class="list col-md-12 center-block">
  <g:each in="${entryInstanceList}" status="i" var="entryInstance">
   <div class="entry">
-   
-   <h2><g:link action="show" id="${entryInstance.id}">${entryInstance.title}</g:link></h2>
-   <div class = "summary"><p>${entryInstance.summary}</p></div>
-   <p><b>${entryInstance.author}</b>    
-   <span style = "float: right;" class="entry-date">${entryInstance.lastUpdated}</span></p>            
-  </div>  
+   <g:link action="show" id="${entryInstance.id}"> 
+   	<h2>${entryInstance.title}</h2></g:link>
+   	<div class = "summary">${entryInstance.summary}</div>
+
+   		<b>${entryInstance.author}</b>    
+   		<span style = "float: right;" class="entry-date">${entryInstance.lastUpdated}</span>
+  
+              
+  </div> 
+     <hr>
  </g:each>
 </div>
 	<g:if test="${entryInstanceCount>10}">
-		<div class="pagination col-md-12 center-block">
+        <div class="row col-md-offset-1 col-md-10">
+		<div class="pagination center-block">
 			<g:paginate total="${entryInstanceCount ?: 0}" />
 		</div>
+        </div>
 	</g:if>
 	</body>
 </html>

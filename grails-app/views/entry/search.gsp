@@ -24,15 +24,19 @@
  <g:each var="Entry" in="${Entrys}">
   <div class="entry">
    
-   <h2><g:link action="show" id="${Entry?.id}">${Entry?.title}</g:link></h2>
+   <g:link action="show" id="${Entry?.id}"><h2>${Entry?.title}</h2></g:link>
    <div class = "summary"><p>${Entry?.summary}</p></div>
-   <p><b>${Entry?.author}</b>    
-   <span style = "float: right;" class="entry-date">${Entry?.lastUpdated}</span></p>            
+   <b>${Entry?.author}</b>    
+   <span style = "float: right;" class="entry-date">${Entry?.lastUpdated}</span>          
   </div>  
+     
+      <hr>
  </g:each>
 </div>
-		<div class="pagination">
+		<g:if test="${entryInstanceCount>10}">
+		<div class="pagination col-md-12 center-block">
 			<g:paginate total="${entryInstanceCount ?: 0}" />
 		</div>
+	</g:if>
 	</body>
 </html>
