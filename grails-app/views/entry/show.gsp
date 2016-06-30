@@ -41,13 +41,35 @@
 					</fieldset>
 				</g:form>
 			</g:if>
-			<g:else>
-				<g:form url="[resource:entryInstance, action:'comment']" method="PUT">
-					<fieldset class="buttons col-md-12">
-						<g:actionSubmit action="comment" value="${message(code: 'default.button.comment.label', default: 'Comment')}"/>
-					</fieldset>
-				</g:form>
-			</g:else>
+			<g:form action="save" controller="comment">
+				<fieldset class="buttons col-md-12">
+					<div class="fieldcontain ${hasErrors(bean: commentInstance, field: 'author', 'error')} required">
+						<label for="author">
+							<g:message code="comment.author.label" default="Author" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:textArea id="commentAuthor" name="author" cols="40" rows="5" maxlength="5000" required="" value="${commentInstance?.author}"/>
+					
+					</div>
+					<div class="fieldcontain ${hasErrors(bean: commentInstance, field: 'content', 'error')} required">
+						<label for="content">
+							<g:message code="comment.content.label" default="Comment" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:textArea id="commentContent" name="content" cols="40" rows="5" maxlength="5000" required="" value="${commentInstance?.content}"/>
+					</div>
+				</fieldset>
+				<fieldset>
+					<g:submitButton name="create" id="commentSubmit" class="btn btn-primary save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+				</fieldset>
+			</g:form>
 		</div>
+		<g:formRemote name="fetchComments"
+			url="[controller:'comment', action:'fetchComments', value:'${params.entryInstance.id}']"
+			update="[success:'results', failure:'error']">
+		</g:formRemote>
+		<div id="error"></div>
+		<div>Comments:</div>
+		<div id="results"></div>
 	</body>
 </html>
