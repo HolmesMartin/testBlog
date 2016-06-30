@@ -15,8 +15,17 @@ class UserSpec extends Specification {
     def cleanup() {
     }
 
-    void "test failing user"() {
-    	def user = new User()
-    	assertFalse user.validate()
+    void "test user constraints"() {
+    	when: "test user is made"
+    		String login = 'test'
+    		String password = 'test'
+    		String name = 'test'
+    	
+    	then: "test user should match"
+    		user.login == login
+    		user.password == password
+    		user.name == name
+    		
     }
+    
 }
