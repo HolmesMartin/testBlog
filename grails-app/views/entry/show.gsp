@@ -44,7 +44,7 @@
 			<g:else>
 				<g:form url="[resource:entryInstance, action:'comment']" method="PUT">
 					<fieldset class="buttons col-md-12">
-						<g:actionSubmit action="comment" value="${message(code: 'default.button.comment.label', default: 'Comment')}"/>
+						<g:actionSubmit action="fetchComments" value="${message(code: 'default.button.comment.label', default: 'Comment')}"/>
 					</fieldset>
 				</g:form>
 			</g:else>

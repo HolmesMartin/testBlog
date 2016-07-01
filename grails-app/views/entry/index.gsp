@@ -26,9 +26,9 @@
    	<h2 id="blogId${i}">${entryInstance.title}</h2></g:link>
    	<div class = "col-md-12 summary">${entryInstance.summary}</div>
 
-   		<div class = "col-md-6 text-left"><b>${entryInstance.author}</b></div>
-        <div class = "col-md-6 text-right">
-   		<span><b>Last Updated: ${entryInstance.lastUpdated}</b></span>          
+   		<div class = "col-md-4 text-left"><b>${entryInstance.author}</b></div>
+        <div class = "col-md-8 text-right">
+   		<span><b>Last Updated: <g:formatDate date="${entryInstance.lastUpdated}" type="datetime" style="MEDIUM"/></b></span>          
         </div>
   </div> 
   
