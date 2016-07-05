@@ -9,23 +9,26 @@ import spock.lang.Specification
 @TestFor(User)
 class UserSpec extends Specification {
 
+	def user
+	
     def setup() {
     }
 
     def cleanup() {
     }
 
-    void "test user constraints"() {
+    void "test good user constraints"() {
     	when: "test user is made"
     		String login = 'test'
     		String password = 'test'
     		String name = 'test'
+			user = new User(login:login, password:password, name:name)
+			user.save()
     	
     	then: "test user should match"
     		user.login == login
     		user.password == password
-    		user.name == name
-    		
+    		user.name == name	
     }
     
 }

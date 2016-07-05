@@ -3,12 +3,10 @@ package testblog
 class User {
 
     static constraints = {
-	    //login(unique:true)
-	   // password(password:true)
-	    //name()
+	    login(unique:true)
+	    password(password:true)
+	    name()
   	}
-  
-	static hasMany = [entries:Entry]
   
 	String login
 	String password

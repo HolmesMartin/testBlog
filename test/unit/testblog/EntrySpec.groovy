@@ -8,13 +8,26 @@ import spock.lang.Specification
  */
 @TestFor(Entry)
 class EntrySpec extends Specification {
+	
+	def entry
+	
+	def setup() {
+	}
 
-    def setup() {
-    }
+	def cleanup() {
+	}
 
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
+	void "test good entry constraints"() {
+		when: "test entry is made"
+			String title = 'Test Title'
+			String summary = 'This is a test blog, this should be just a test.'
+			String author = 'whomsoever'
+			entry = new Entry(title: title, summary: summary, author: author)
+			entry.save()
+		
+		then: "test entry should match"
+			entry.title == title
+			entry.summary == summary
+			entry.author == author
+	}
 }
