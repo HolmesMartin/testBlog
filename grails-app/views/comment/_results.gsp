@@ -11,7 +11,7 @@
 					</b>
 				</div>
 				<div class="col-md-6 text-right">
-					<span><b>Last Updated: ${comment?.lastUpdated}</b></span>
+					<span><b>Last Updated: <g:formatDate date="${comment?.lastUpdated}" type="datetime" style="SMALL"/></b></span>
 				</div>
 			</div>
 

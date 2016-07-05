@@ -103,10 +103,13 @@
 	<script>
 		$(document).ready(function() {
 			$('#fetchComments').submit();
-		});
-		$("#commentSubmit").ajaxComplete(function() {
-			$('#fetchComments').submit();
-		});
+			});
+        $(document).ajaxSuccess(function(){
+            var d = new Date();
+            if($("#content").val() != '' && $("#author").val() != ''){
+			$("#results").prepend("<div class=\"entry row\"><div class=\"col-md-12 summary\">" + $("#content").val() + "</div><div class=\"col-md-6 text-left\"><b>" + $("#author").val() + "</b></div><div class=\"col-md-6 text-right\"><span><b>Last Updated: " + d.toLocaleDateString(navigator.language, {month:'numeric', day:'numeric', year: '2-digit'}) + " " + d.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'}) + "</b></span></div></div><hr>");}
+            $('#saveComment')[0].reset();
+        })
 	</script>
 </body>
 </html>
