@@ -1,4 +1,3 @@
-
 <%@ page import="testblog.Entry"%>
 <!DOCTYPE html>
 <html>
@@ -45,7 +44,7 @@
 		</div>
 		<div class="col-md-12">
 			<b> ${entryInstance.author}
-			</b> <span style="float: right;" class="entry-date"> ${entryInstance.lastUpdated}
+			 <span style="float: right;" class="entry-date"> <g:formatDate date="${entryInstance.lastUpdated}" type="datetime" style="SMALL"/></b>
 			</span>
 		</div>
 
@@ -63,7 +62,8 @@
 			</g:form>
 		</g:if>
 
-		<g:form action="save" controller="comment">
+		<g:formRemote name ="saveComment" url="[controller:'comment', action:'save']">
+			
 			<fieldset class="buttons col-md-12">
 				<div
 					class="fieldcontain ${hasErrors(bean: commentInstance, field: 'author', 'error')} required">
@@ -90,16 +90,23 @@
 					class="btn btn-primary save"
 					value="${message(code: 'default.button.create.label', default: 'Create')}" />
 			</fieldset>
-		</g:form>
+		</g:formRemote>
 	</div>
 	<g:formRemote name="fetchComments"
 		url="[controller:'comment', action:'fetchComments']"
 		update="[success:'results', failure:'error']">
 		<g:hiddenField id="entry" name="entry" value="${entryInstance.id}" />
-		<g:submitButton name="showComments" value="ShowComments"/>
 	</g:formRemote>
 	<div id="error"></div>
 	<div>Comments:</div>
 	<div id="results"></div>
+	<script>
+		$(document).ready(function() {
+			$('#fetchComments').submit();
+		});
+		$("#commentSubmit").ajaxComplete(function() {
+			$('#fetchComments').submit();
+		});
+	</script>
 </body>
 </html>

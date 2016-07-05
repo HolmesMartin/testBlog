@@ -28,7 +28,7 @@
 
    		<div class = "col-md-4 text-left"><b>${entryInstance.author}</b></div>
         <div class = "col-md-8 text-right">
-   		<span><b>Last Updated: <g:formatDate date="${entryInstance.lastUpdated}" type="datetime" style="MEDIUM"/></b></span>          
+   		<span><b>Last Updated: <g:formatDate date="${entryInstance.lastUpdated}" type="datetime" style="SMALL"/></b></span>          
         </div>
   </div> 
   
