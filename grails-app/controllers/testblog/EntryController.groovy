@@ -10,8 +10,20 @@ class EntryController {
 			return false
 		}
 	}
-
-	def scaffold = Entry
+	
+	def index = {
+		[entryInstanceList: Entry.findAll()]
+	}
+	
+	def create = {
+		
+	}
+	
+	def save = {
+		def entry = new Entry(params)
+		entry.save()
+		redirect(controller:"entry", action:"show", id:entry.id)
+	}
 	
 	def search = {
 		def Entrys = Entry.findAllByTitleIlike("%${params.value}%")
@@ -22,5 +34,9 @@ class EntryController {
 		this.flash.message = flash.message
 		def entry = Entry.findById("${params.id}")
     	redirect uri:"/entry/show/" + params.id + "/" + (entry.title).replace(" ", "-") + "/"
+	}
+	
+	def show = {
+		[entryInstance: Entry.findById("${params.id}")]
 	}
 }
