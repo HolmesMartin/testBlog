@@ -58,11 +58,6 @@ body {
     height: 100%;
 }
 
-a:link,
-a:visited,
-a:hover {
-    color: white;
-}
 
 a:hover,
 a:active {
@@ -404,25 +399,6 @@ fieldset.embedded legend {
 }
 
 
-/* same effects for browsers that support HTML5 client-side validation (these have to be specified separately or IE will ignore the entire rule) */
-
-input:invalid,
-select:invalid,
-textarea:invalid {
-    background: #fff3f3;
-    border-color: #ffaaaa;
-    color: #cc0000;
-}
-
-input:invalid:focus,
-select:invalid:focus,
-textarea:invalid:focus {
-    -moz-box-shadow: 0 0 0.5em #ffaaaa;
-    -webkit-box-shadow: 0 0 0.5em #ffaaaa;
-    box-shadow: 0 0 0.5em #ffaaaa;
-}
-
-
 /* TABLES */
 
 table {
@@ -687,3 +663,25 @@ hr {
 img{
     border-radius:25px;
 }
+.commentSection{
+   padding: 7.5px;
+    background-color: rgba(255,255,255,.25);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px rgba(100,100,100,.20),inset 0 5px 30px rgba(100,100,100,.75);
+    margin:15px 0;
+}
+pre{
+    background-color: transparent;
+    border:none;
+    word-break: normal;
+    white-space:pre-line;
+}
+.btn-secondary {
+    color: #373a3c;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.commentHeader{
+    margin: 10px 0;
+}
+

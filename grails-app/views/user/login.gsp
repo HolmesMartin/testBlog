@@ -36,10 +36,14 @@
 	          </table>
 	        </div>
 	        <div class="buttons">
-	          <span class="button">
-	            <input class="save" type="submit" value="Login" />
-	          </span>
+                <span class="button">
+	               <input type="submit" value="Login" />
+                </span>
+                <span>
+                    <a href="/testBlog/user/create">Create User</a>
+                </span>
 	        </div>
+              <br>
 	      </g:form>
 	    </div>
 	</body>

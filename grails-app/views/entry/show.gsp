@@ -32,22 +32,23 @@
 		</div>
 	</g:if>
 	<div id="show-entry" class="content scaffold-show" role="main">
-		<h1 id="blogTitle">
+		<div class = "clearfix">
+        <h2 id="blogTitle">
 			${entryInstance.title}
-		</h1>
+		</h2>
 		<div id="blogContent" class="entry col-md-12">
 			<div class="col-md-10">
 				<p>
-					${entryInstance.summary}
+					<pre>${entryInstance.summary}</pre>
 				</p>
 			</div>
 		</div>
 		<div class="col-md-12">
-			<b> ${entryInstance.author}
-			 <span style="float: right;" class="entry-date"> <g:formatDate date="${entryInstance.lastUpdated}" type="datetime" style="SMALL"/></b>
-			</span>
+			<div class = "col-md-8"><b> ${entryInstance.author}</div>
+			 <div class = "col-md-2"><b><span  class="entry-date "></b> <g:formatDate date="${entryInstance.lastUpdated}" type="datetime" style="SMALL"/>
+                 </span></b></div>
 		</div>
-
+       </div> <br>
 		<g:if test="${session.user}">
 			<g:form url="[resource:entryInstance, action:'delete']"
 				method="DELETE">
@@ -61,54 +62,60 @@
 				</fieldset>
 			</g:form>
 		</g:if>
-
-		<g:formRemote name ="saveComment" url="[controller:'comment', action:'save']">
+    </div>
+		<g:formRemote class = "clearfix" name ="saveComment" url="[controller:'comment', action:'save']">
 			
-			<fieldset class="buttons col-md-12">
-				<div
-					class="fieldcontain ${hasErrors(bean: commentInstance, field: 'author', 'error')} required">
-					<label for="author"> <g:message code="comment.author.label"
-							default="Author" /> <span class="required-indicator">*</span>
-					</label>
-					<g:textArea id="author" name="author" cols="40" rows="5"
-						maxlength="5000" required="" value="${author}" />
-				</div>
-
-				<div
-					class="fieldcontain ${hasErrors(bean: commentInstance, field: 'content', 'error')} required">
+			<div class="col-md-12">
+                <div class = "col-md-9">
+                <div
+					class="${hasErrors(bean: commentInstance, field: 'content', 'error')} required">
 					<label for="content"> <g:message
 							code="comment.content.label" default="Comment" /> <span
 						class="required-indicator">*</span>
 					</label>
-					<g:textArea id="content" name="content" cols="40" rows="5"
+					<g:textArea class = "col-md-8 form-control" id="content" name="content" 
 						maxlength="5000" required="" value="${content}" />
 				</div>
-				<g:hiddenField id="entry" name="entry" value="${entryInstance.id}" />
-			</fieldset>
-			<fieldset>
-				<g:submitButton name="create" id="commentSubmit"
-					class="btn btn-primary save"
-					value="${message(code: 'default.button.create.label', default: 'Create')}" />
-			</fieldset>
+				<div
+					class="${hasErrors(bean: commentInstance, field: 'author', 'error')} required">
+					<label for="author"> <g:message code="comment.author.label"
+							default="Author" /> <span class="required-indicator">*</span>
+					</label>
+					<g:textField class = "form-control" id="author" name="author"
+						maxlength="5000" required="" value="${author}" />
+				</div>
+                </div>
+				<div class = "col-md-10">
+                    <br>
+                    <g:hiddenField id="entry" name="entry" value="${entryInstance.id}" />
+                    <div>
+                        <g:submitButton name="create" id="commentSubmit"
+                            class="btn btn-secondary save"
+                            value="Submit Comment!" />
+                    </div>
+                </div>
+			</div>
 		</g:formRemote>
-	</div>
+	
+    <div class = "clearfix"></div>
 	<g:formRemote name="fetchComments"
 		url="[controller:'comment', action:'fetchComments']"
 		update="[success:'results', failure:'error']">
 		<g:hiddenField id="entry" name="entry" value="${entryInstance.id}" />
 	</g:formRemote>
-	<div id="error"></div>
-	<div>Comments:</div>
-	<div id="results"></div>
+
+
+		<div  class = "col-md-11" id="results"></div>
+
 	<script>
 		$(document).ready(function() {
 			$('#fetchComments').submit();
 			});
         $(document).ajaxSuccess(function(){
-            var d = new Date();
             if($("#content").val() != '' && $("#author").val() != ''){
-			$("#results").prepend("<div class=\"entry row\"><div class=\"col-md-12 summary\">" + $("#content").val() + "</div><div class=\"col-md-6 text-left\"><b>" + $("#author").val() + "</b></div><div class=\"col-md-6 text-right\"><span><b>Last Updated: " + d.toLocaleDateString(navigator.language, {month:'numeric', day:'numeric', year: '2-digit'}) + " " + d.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'}) + "</b></span></div></div><hr>");}
+			$('#fetchComments').submit();
             $('#saveComment')[0].reset();
+            }
         })
 	</script>
 </body>

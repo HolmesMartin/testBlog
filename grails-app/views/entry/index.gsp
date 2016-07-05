@@ -23,7 +23,7 @@
  <g:each in="${entryInstanceList}" status="i" var="entryInstance">
   <div class="entry row">
    <g:link action="show" id="${entryInstance.id}"> 
-   	<h2 id="blogId${i}">${entryInstance.title}</h2></g:link>
+       <h2 id="blogId${i}">${entryInstance.title}</h2></g:link>
    	<div class = "col-md-12 summary">${entryInstance.summary}</div>
 
    		<div class = "col-md-4 text-left"><b>${entryInstance.author}</b></div>
