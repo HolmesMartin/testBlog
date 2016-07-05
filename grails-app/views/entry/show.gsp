@@ -17,8 +17,9 @@
 	</g:if>
 	<a href="#show-entry" class="skip" tabindex="-1"><g:message
 			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
+    
 	<g:if test="${session.user}">
-		<div class="nav" role="navigation">
+        <div class="nav gap" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message
 							code="default.home.label" /></a></li>
@@ -28,7 +29,24 @@
 				<li><g:link class="create" action="create">
 						<g:message code="default.new.label" args="[entityName]" />
 					</g:link></li>
+                <li>
+                <g:link class="edit" action="edit" resource="${entryInstance}">
+						<g:message code="default.button.edit.label" default="Edit" />
+					</g:link>
+                </li>
+                <li>
+                <g:form url="[resource:entryInstance, action:'delete']"
+				method="DELETE">
+
+					<g:actionSubmit class = "deleteButton" action="delete"
+						value="${message(code: 'default.button.delete.label', default: 'Delete')}"
+						onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+
+			</g:form>
+                    </li>
 			</ul>
+            
+            
 		</div>
 	</g:if>
 	<div id="show-entry" class="content scaffold-show" role="main">
@@ -49,19 +67,6 @@
                  </span></b></div>
 		</div>
        </div> <br>
-		<g:if test="${session.user}">
-			<g:form url="[resource:entryInstance, action:'delete']"
-				method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${entryInstance}">
-						<g:message code="default.button.edit.label" default="Edit" />
-					</g:link>
-					<g:actionSubmit class="delete" action="delete"
-						value="${message(code: 'default.button.delete.label', default: 'Delete')}"
-						onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
-		</g:if>
     </div>
 		<g:formRemote class = "clearfix" name ="saveComment" url="[controller:'comment', action:'save']">
 			
