@@ -10,7 +10,7 @@ class MostRecentBlog
   text_field(:comment_content, :id => 'content')
   button(:comment_submit, :id => 'commentSubmit')
 
-  h1(:blog_title, :id => 'blogTitle')
+  h2(:blog_title, :id => 'blogTitle')
 
   def title_words
     title_words_array =  self.blog_title.split
