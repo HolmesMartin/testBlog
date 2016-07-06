@@ -11,6 +11,16 @@ class EntryController {
 		}
 	}
 	
+	def redirectAgain(){
+		this.flash.message = flash.message
+		def entry = Entry.findById("${params.id}")
+		redirect uri:"/entry/show/" + params.id + "/" + (entry.title).replace(" ", "-") + "/"
+	}
+	
+	def create = {
+			
+	}
+	
 	def index = {
 		def value = params.value ?: params.q ?: ""	
 		def entries
@@ -28,32 +38,53 @@ class EntryController {
 		[entryInstanceList: entries, entryInstanceCount: totalEntries, params: params]
 	}
 	
-	def create = {
+	def search = {
+		def Entrys = Entry.findAllByTitleIlike("%${params.value}%")
+		render(view:"search", model: [value: params.value, Entrys: Entrys])
+	}
+	
+	def show = {
+		[entryInstance: Entry.findById("${params.id}")]
+	}
+	
+	def save = {
+		def entry = new Entry(params)
+		if (!entry.save(flush: true)) {
+			flash.message = "Blog not Saved"
+            render(view: "create", model: [entryInstance: entry])
+            return
+        }
 		
+		flash.message = "Blog Created!"
+        redirect(action: "show", id: entry.id)
 	}
 	
 	def edit = {
 		[entryInstance: Entry.findById("${params.id}")]
 	}
 	
-	def save = {
-		def entry = new Entry(params)
-		entry.save()
-		redirect(controller:"entry", action:"show", id:entry.id)
-	}
-	
-	def search = {
-		def Entrys = Entry.findAllByTitleIlike("%${params.value}%")
-		render(view:"search", model: [value: params.value, Entrys: Entrys])
-	   }
-
-	def redirectAgain(){
-		this.flash.message = flash.message
+	def delete = {
 		def entry = Entry.findById("${params.id}")
-    	redirect uri:"/entry/show/" + params.id + "/" + (entry.title).replace(" ", "-") + "/"
+		if (!entry.delete(flush: true)) {
+			flash.message = "Blog Deleted"
+			redirect(action: "index")
+			return
+		}
+		
+		flash.message = "Blog not Deleted"
+		redirect(view: "show", model: [entryInstance: entryInstance])
 	}
 	
-	def show = {
-		[entryInstance: Entry.findById("${params.id}")]
+	def update = {
+		def entry = Entry.findById("${params.id}")
+		entry.properties = params
+		if (!entry.save(flush: true)) {
+			flash.message = "Edit Failed"
+            render(view: "create", model: [entryInstance: entry])
+            return
+        }
+		
+		flash.message = "Blog Edited"
+        redirect(action: "show", id: entry.id)
 	}
 }
