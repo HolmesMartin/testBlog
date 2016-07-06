@@ -28,7 +28,7 @@
 
 		<div class = "col-sm-12" id="grailsLogo" role="banner">
             <div class = " col-sm-8">
-                <a href="/testBlog/"><asset:image src="blog.jpeg" alt="Blog"/></a>
+                <a href="/testBlog/"><asset:image src="blog.jpeg" alt="Blog"/><h3>Random wisdom from the interwebs!</h3></a>
             </div>
             <div class = "col-sm-4">
                 <g:loginControl/>
