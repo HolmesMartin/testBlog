@@ -11,12 +11,26 @@ class EntryController {
 		}
 	}
 	
-	def index = {
-		[entryInstanceList: Entry.findAll()]
+	def index = {		
+		def entries
+		def totalEntries
+		
+		totalEntries = Entry.findAll().size()
+		
+		def offset = params.offset
+		if (offset == null){offset = 0} else {offset = offset.toInteger()}
+		def max = ((totalEntries - offset < 9) ? totalEntries : offset + 10) - 1
+		entries = Entry.findAll()[offset..max]
+		
+		[entryInstanceList: entries, entryInstanceCount: totalEntries]
 	}
 	
 	def create = {
 		
+	}
+	
+	def edit = {
+		[entryInstance: Entry.findById("${params.id}")]
 	}
 	
 	def save = {
