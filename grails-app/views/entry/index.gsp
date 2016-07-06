@@ -38,9 +38,9 @@
 </div>
 	<g:if test="${entryInstanceCount>10}">
         <div class="row col-md-offset-1 col-md-10">
-		<div class="pagination center-block">
-			<g:paginate total="${entryInstanceCount ?: 0}" />
-		</div>
+			<div class="pagination center-block">
+				<g:paginate total="${entryInstanceCount ?: 0}" params="${[value:params.value]}" />
+			</div>
         </div>
 	</g:if>
 

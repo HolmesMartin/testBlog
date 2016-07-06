@@ -11,18 +11,21 @@ class EntryController {
 		}
 	}
 	
-	def index = {		
+	def index = {
+		def value = params.value ?: params.q ?: ""	
 		def entries
 		def totalEntries
 		
-		totalEntries = Entry.findAll().size()
+		totalEntries = Entry.findAllByTitleIlike("%${value}%").size()
 		
-		def offset = params.offset
-		if (offset == null){offset = 0} else {offset = offset.toInteger()}
-		def max = ((totalEntries - offset < 9) ? totalEntries : offset + 10) - 1
-		entries = Entry.findAll()[offset..max]
-		
-		[entryInstanceList: entries, entryInstanceCount: totalEntries]
+		if (totalEntries > 0) {
+			def offset = params.offset
+			if (offset == null){offset = 0} else {offset = offset.toInteger()}
+			def max = ((totalEntries - offset < 9) ? totalEntries - 1 : offset + 9)
+			entries = Entry.findAllByTitleIlike("%${value}%")[offset..max]
+		}
+		else {entries = []}
+		[entryInstanceList: entries, entryInstanceCount: totalEntries, params: params]
 	}
 	
 	def create = {
