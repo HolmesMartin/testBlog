@@ -50,11 +50,12 @@ class EntryController {
 	def save = {
 		def entry = new Entry(params)
 		if (!entry.save(flush: true)) {
+			flash.message = "Blog not Saved"
             render(view: "create", model: [entryInstance: entry])
             return
         }
 		
-		flash.message = message(code: 'default.created.message', args: [message(code: 'entry.label', default: 'Entry')])
+		flash.message = "Blog Created!"
         redirect(action: "show", id: entry.id)
 	}
 	
@@ -65,12 +66,25 @@ class EntryController {
 	def delete = {
 		def entry = Entry.findById("${params.id}")
 		if (!entry.delete(flush: true)) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'entry.label', default: 'Entry')])
-			redirect(view: "show", model: [entryInstance: entry])
+			flash.message = "Blog Deleted"
+			redirect(action: "index")
 			return
 		}
 		
-		flash.message = message(code: 'default.deleted.message', args: [message(code: 'entry.label', default: 'Entry')])
-		redirect(action: "index")
+		flash.message = "Blog not Deleted"
+		redirect(view: "show", model: [entryInstance: entryInstance])
+	}
+	
+	def update = {
+		def entry = Entry.findById("${params.id}")
+		entry.properties = params
+		if (!entry.save(flush: true)) {
+			flash.message = "Edit Failed"
+            render(view: "create", model: [entryInstance: entry])
+            return
+        }
+		
+		flash.message = "Blog Edited"
+        redirect(action: "show", id: entry.id)
 	}
 }
