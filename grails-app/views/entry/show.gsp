@@ -104,7 +104,7 @@
 		$("#commentSubmit").click(function(){
 			if ($("#author").val() != "" && $("#content").val() != "") {
 				$.ajax({
-					"url" : '${g.createLink(controller:'comment', action:'save')}',
+					"url": '${g.createLink(controller:'comment', action:'save')}',
 					"type": 'post',
 					"data": {
 						"author": $("#author").val(),
@@ -112,16 +112,18 @@
 						"entry": $("#entry").val()
 					},
 					"success": function(){
-						$('#fetchComments').submit();
+                        $('#fetchComments').submit();
 						$('#author').val("");
 						$('#content').val("");
-					}
-				});
+                    resultsPage.myfunction();
+                        }
+                
+                });
 			}
 			else {
 				alert("Please fill out both comment fields");
 			}
 		})
-	</script>
+    </script>
 </body>
 </html>
