@@ -35,7 +35,7 @@
 	            </tbody>
 	          </table>
 	        </div>
-	        <div class="buttons">
+	        <div class="buttons col-md-12">
                 <span class="button">
 	               <input type="submit" value="Login" />
                 </span>

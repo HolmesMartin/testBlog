@@ -9,7 +9,7 @@
 
 				<div class="col-md-6 text-left">
 					<b>
-						<pre>${comment?.author}</pre>
+						<pre><span><b>${comment?.author}</b></span></pre>
 					</b>
 				</div>
 				<div class="col-md-6 text-right">

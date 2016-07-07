@@ -132,12 +132,18 @@ img {
 /* NAVIGATION MENU */
 
 .nav {
-    background-color: #efefef;
-    padding: 0.5em 0.75em;
-    -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-    -webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-    box-shadow: 0 0 3px 1px #aaaaaa;
-    zoom: 1;
+    border-top: 0;
+    margin: 10px;
+    padding: 0.3em 0.2em;
+    text-align: center;
+    -moz-box-shadow: 0 0 3px 1px ;
+    -webkit-box-shadow: 0 0 3px 1px darkgray;
+    box-shadow: 0 0 3px 1px darkgray;
+    box-shadow: inset 0 0 0 1px rgba(100,100,100,.20),inset 0 5px 30px rgba(100,100,100,.75);
+    border-radius: 10px;
+    border-bottom-right-radius: 75%;
+    border-top-right-radius: 75%;
+    
 }
 
 .nav ul {
@@ -148,7 +154,7 @@ img {
 
 .nav li {
     display: block;
-    float: left;
+    float:left;
     list-style-type: none;
     margin-right: 0.5em;
     padding: 0;
@@ -171,7 +177,7 @@ img {
 
 .nav a:focus,
 .nav a:hover {
-    background-color: #999999;
+    background-color: rgba(100,100,100,.75);
     color: #ffffff;
     outline: none;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
@@ -538,21 +544,25 @@ tr:hover {
 /* ACTION BUTTONS */
 
 .buttons {
-    background-color: #efefef;
-    overflow: hidden;
-    padding: 0.3em;
-    -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-    -webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-    box-shadow: 0 0 3px 1px #aaaaaa;
-    margin: 0.1em 0 0 0;
-    border: none;
+    width:97.5%;
+    float:left;
+    border-top: 0;
+    margin: 10px;
+    margin-right: 25px;
+    padding: 0.3em 0.2em;
+    -moz-box-shadow: 0 0 3px 1px ;
+    -webkit-box-shadow: 0 0 3px 1px darkgray;
+    box-shadow: 0 0 3px 1px darkgray;
+    box-shadow: inset 0 0 0 1px rgba(100,100,100,.20),inset 0 5px 30px rgba(100,100,100,.75);
+    border-radius: 10px;
+    border-bottom-right-radius: 75%;
+    border-top-right-radius: 75%;
 }
-
 .buttons input,
 .buttons a {
     background-color: transparent;
     border: 0;
-    color: #666666;
+    color: white;
     cursor: pointer;
     display: inline-block;
     margin: 0 0.25em 0;
@@ -568,7 +578,7 @@ tr:hover {
 .buttons input:focus,
 .buttons a:hover,
 .buttons a:focus {
-    background-color: #999999;
+    background-color: rgba(100,100,100,.75);
     color: #ffffff;
     outline: none;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
@@ -713,7 +723,7 @@ pre{
     margin:10px 0;
 }
 .deleteButton{
-     background-color: #efefef;
+     background-color: transparent;
     overflow: hidden;
     padding-left: 0;
     zoom: 1;
@@ -735,7 +745,7 @@ pre{
 }
 .deleteButton:focus,
 .deleteButton:hover {
-    background-color: #999999;
+    background-color: rgba(100,100,100,.75);
     color: #ffffff;
     outline: none;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
