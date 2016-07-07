@@ -106,21 +106,25 @@
 			$('#fetchComments').submit();
 		});
 		$("#commentSubmit").click(function(){
-			$.ajax({
-				"url" : '${g.createLink(controller:'comment', action:'save')}',
-				"type": 'post',
-				"data": {
-					"author": $("#author").val(),
-					"content": $("#content").val(),
-					"entry": $("#entry").val()
-				},
-				"success": function(){
-					alert("Comment added!");
-					$('#fetchComments').submit();
-					$('#author').val("");
-					$('#content').val("");
-				}
-			});
+			if ($("#author").val() != "" && $("#content").val() != "") {
+				$.ajax({
+					"url" : '${g.createLink(controller:'comment', action:'save')}',
+					"type": 'post',
+					"data": {
+						"author": $("#author").val(),
+						"content": $("#content").val(),
+						"entry": $("#entry").val()
+					},
+					"success": function(){
+						$('#fetchComments').submit();
+						$('#author').val("");
+						$('#content').val("");
+					}
+				});
+			}
+			else {
+				alert("Please fill out both comment fields");
+			}
 		})
 	</script>
 </body>
