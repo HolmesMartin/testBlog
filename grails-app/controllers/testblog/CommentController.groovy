@@ -14,16 +14,16 @@ class CommentController {
 		render(template:'results', model: [value: params.value, Comments: comments])
 	   }
 	   
-	def save() {
+	def save = {
+		def model = [:]
+		
 		def realEntry = Entry.findById("${params.entry}".toInteger())
 		def commentInstance = new Comment(params)
 		commentInstance.entry = realEntry
         if (!commentInstance.save(flush: true)) {
-            render(view: "create", model: [commentInstance: commentInstance])
-            return
+			model.success = false
         }
-
-		flash.message = message(code: 'default.created.message', args: [message(code: 'comment.label', default: 'Comment'), commentInstance.id])
-		redirect(controller:"entry", action:"show", id:"${params.entry}".toInteger())
+		else { model.success = true }
+		render model as JSON
 	}
 }

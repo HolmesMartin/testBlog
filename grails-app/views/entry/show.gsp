@@ -11,7 +11,7 @@
 </head>
 <body>
 	<g:if test="${flash.message}">
-		<div class="message" role="status">
+		<div id="message" class="message" role="status">
 			${flash.message}
 		</div>
 	</g:if>
@@ -62,39 +62,35 @@
 		</div>
        </div> <br>
     </div>
-		<g:formRemote class = "clearfix" name ="saveComment" url="[controller:'comment', action:'save']">
+		<!-- <g:form name="saveComment" class = "clearfix" action="save"> -->
 			
-			<div class="col-md-12">
+			<div  class="clearfix col-md-12">
                 <div class = "col-md-9">
-                <div
-					class="${hasErrors(bean: commentInstance, field: 'content', 'error')} required">
+                
 					<label for="content"> <g:message
 							code="comment.content.label" default="Comment" /> <span
 						class="required-indicator">*</span>
 					</label>
 					<g:textArea class = "col-md-8 form-control" id="content" name="content" 
 						maxlength="5000" required="" value="${content}" />
-				</div>
-				<div
-					class="${hasErrors(bean: commentInstance, field: 'author', 'error')} required">
+				
+				
 					<label for="author"> <g:message code="comment.author.label"
 							default="Author" /> <span class="required-indicator">*</span>
 					</label>
 					<g:textField class = "form-control" id="author" name="author"
 						maxlength="5000" required="" value="${author}" />
-				</div>
+				
                 </div>
 				<div class = "col-md-10">
                     <br>
                     <g:hiddenField id="entry" name="entry" value="${entryInstance.id}" />
                     <div>
-                        <g:submitButton name="create" id="commentSubmit"
-                            class="btn btn-secondary save"
-                            value="Submit Comment!" />
+                        <button id="commentSubmit" class="btn btn-secondary save">Submit Comment!</button>
                     </div>
                 </div>
 			</div>
-		</g:formRemote>
+		<!-- </g:form> -->
 	
     <div class = "clearfix"></div>
 	<g:formRemote name="fetchComments"
@@ -103,19 +99,29 @@
 		<g:hiddenField id="entry" name="entry" value="${entryInstance.id}" />
 	</g:formRemote>
 
-
-		<div  class = "col-md-11" id="results"></div>
+	<div  class = "col-md-11" id="results"></div>
 
 	<script>
 		$(document).ready(function() {
 			$('#fetchComments').submit();
+		});
+		$("#commentSubmit").click(function(){
+			$.ajax({
+				"url" : '${g.createLink(controller:'comment', action:'save')}',
+				"type": 'post',
+				"data": {
+					"author": $("#author").val(),
+					"content": $("#content").val(),
+					"entry": $("#entry").val()
+				},
+				"success": function(){
+					alert("Comment added!");
+					$('#fetchComments').submit();
+					$('#author').val("");
+					$('#content').val("");
+				}
 			});
-        $(document).ajaxSuccess(function(){
-            if($("#content").val() != '' && $("#author").val() != ''){
-			$('#fetchComments').submit();
-            $('#saveComment')[0].reset();
-            }
-        })
+		})
 	</script>
 </body>
 </html>
