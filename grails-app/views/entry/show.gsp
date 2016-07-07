@@ -11,20 +11,10 @@
     </head>
 
     <body>
-        <g:if test="${flash.message}">
-            <div id="message" class="message" role="status">
-                ${flash.message}
-            </div>
-        </g:if>
-
         <a href="#show-entry" class="skip" tabindex="-1">
             <g:message code="default.link.skip.label" default="Skip to content&hellip;" />
         </a>
-
-        <g:if test="${session.user}">
             <g:render template="adminNav" />
-        </g:if>
-
         <div>
             <h2 id="blogTitle">
 			${entryInstance.title}

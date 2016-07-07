@@ -44,7 +44,7 @@ class EntryController {
 	}
 	
 	def show = {
-		[entryInstance: Entry.findById("${params.id}")]
+		[entryInstance: Entry.findById("${params.id}"), showMenu:true]
 	}
 	
 	def save = {

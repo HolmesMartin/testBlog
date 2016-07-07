@@ -31,7 +31,7 @@
 </head>
 
 <body>
-
+    
     <div class="col-sm-12" id="grailsLogo" role="banner">
         <div class=" col-sm-8">
             <a href="/testBlog/">
@@ -50,6 +50,11 @@
     </div>
 
     <div class="col-sm-12">
+        <g:if test="${flash.message}">
+            <div class="message" role="status">
+                ${flash.message}
+            </div>
+        </g:if>
         <g:layoutBody/>
     </div>
     <div class="footer" role="contentinfo"></div>

@@ -763,3 +763,6 @@ pre {
 b {
     color: black;
 }
+.form-control {
+    margin-bottom: 20px;
+}
