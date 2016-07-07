@@ -24,5 +24,4 @@ class UserController {
 		session.user = null
 		redirect(controller:"entry", action:"index")      
 	}
-  
 }
