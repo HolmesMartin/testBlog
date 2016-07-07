@@ -10,7 +10,7 @@ end
 
 Then(/^I should see comments left by other readers$/) do
   on_page MostRecentBlog do |page|
-    page.posted_comments_elements.each do |postedCommentContent|
+    page.all_comments_elements.each do |postedCommentContent|
       expect(postedCommentContent).not_to be_nil
     end
   end
@@ -34,6 +34,6 @@ end
 
 Then(/^my genius comment is at the top of the blog post comments$/) do
   on_page MostRecentBlog do |page|
-    expect(page.posted_comments_elements[0].text).to eq('This blog is so horrible')
+    expect(page.newest_comment).to eq('This blog is so horrible')
   end
 end

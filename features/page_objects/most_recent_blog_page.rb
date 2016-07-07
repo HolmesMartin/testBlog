@@ -4,7 +4,11 @@ class MostRecentBlog
   include PageObject
   div(:blog_post, :id => 'blogContent')
 
-  divs(:posted_comments, :class => 'summary')
+  divs(:all_comments, :class => 'summary')
+
+  def newest_comment
+    self.all_comments_elements[0].pre_element.text
+  end
 
   text_field(:comment_author, :id => 'author')
   text_field(:comment_content, :id => 'content')

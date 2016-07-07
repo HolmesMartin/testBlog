@@ -21,7 +21,7 @@ end
 
 Then(/^I am notified that the blog post was successfully added$/) do
   on_page NewEntrySuccess do |page|
-    expect(page.success_message).to include('created')
+    expect(page.success_message).to include('Created')
   end
 end
 
