@@ -2,8 +2,8 @@ Given(/^I am logged in as a blogger$/) do
   visit_page LoginPage
   sleep 1
   on_page LoginPage do |page|
-    page.user_name = 'test'
-    page.password = 'test'
+    page.user_name = 'admin'
+    page.password = 'admin'
     page.login
   end
 end

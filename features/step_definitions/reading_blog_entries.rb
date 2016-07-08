@@ -7,7 +7,7 @@ Given(/^my favorite blogger has been very active$/) do
     page.password = 'test'
     page.login
   end
-  10.times do
+  15.times do
     on_page HomePage do |page|
       page.new_entry
     end
