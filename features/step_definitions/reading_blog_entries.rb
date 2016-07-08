@@ -3,8 +3,8 @@ include PageObject::PageFactory
 Given(/^my favorite blogger has been very active$/) do
   visit_page LoginPage
   on_page LoginPage do |page|
-    page.user_name = 'test'
-    page.password = 'test'
+    page.user_name = 'admin'
+    page.password = 'admin'
     page.login
   end
   15.times do

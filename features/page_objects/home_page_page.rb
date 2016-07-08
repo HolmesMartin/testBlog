@@ -11,7 +11,7 @@ class HomePage
   text_field(:search_for_blog, :id => 'blogSearch')
   button(:submit, :value => 'Search')
 
-  link(:new_entry, :class => 'create')
+  link(:new_entry, :text => 'New Entry')
   link(:logout, :href => '/testBlog/user/logout')
 end
 

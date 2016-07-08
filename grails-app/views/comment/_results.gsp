@@ -5,7 +5,7 @@
     <div class="list  commentSection">
         <g:each var="comment" in="${Comments}" status="i">
             <div class="entry row">
-                <div class="col-md-12 summary">
+                <div class="comments col-md-12">
                     <pre>${comment?.content}</pre>
                 </div>
 
