@@ -3,10 +3,6 @@ package testblog
 import grails.converters.JSON
 
 class CommentController {
-
-	def scaffold = Comment
-
-    def index() { }
     
     def fetchComments = {
 		def realEntry = Entry.findById("${params.entry}".toInteger())
@@ -26,4 +22,5 @@ class CommentController {
 		else { model.success = true }
 		render model as JSON
 	}
+	
 }

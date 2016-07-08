@@ -1,6 +1,7 @@
 package testblog
 
 class UserController {
+	
     def beforeInterceptor = [action:this.&auth, except:["login","logout", "authenticate"]]
 
 	def auth() {
@@ -9,8 +10,22 @@ class UserController {
 			return false
 		}
 	}
-
-    def scaffold = User
+	
+	def create = {
+			
+	}
+	
+	def save = {
+		def user = new User(params)
+		if (!user.save(flush: true)) {
+			flash.message = "User not Created"
+			render(view: "create", model: [userInstance: user])
+			return
+		}
+		
+		flash.message = "New User Created!"
+		redirect(action: "login")
+	}
   
 	def login = {}
   
@@ -26,10 +41,11 @@ class UserController {
 			redirect(action:"login")
 		}
 	}
-  
+
 	def logout = {
 		flash.message = "Goodbye ${session.user.name}"
 		session.user = null
 		redirect(controller:"entry", action:"index")      
 	}
+	
 }
