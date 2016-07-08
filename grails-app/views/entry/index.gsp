@@ -1,7 +1,6 @@
 <%@ page import="testblog.Entry" %>
     <!DOCTYPE html>
     <html>
-
     <head>
         <meta name="layout" content="main">
         <link rel="stylesheet" href=".../web-app/css/style.css">
@@ -15,5 +14,4 @@
         <g:render template="adminNav"/>
         <g:render template="posts" />
     </body>
-
     </html>

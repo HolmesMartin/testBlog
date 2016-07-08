@@ -15,7 +15,7 @@
     </a>
     <g:render template="adminNav" />
     <div id="create-entry" class="content scaffold-create" role="main">
-        <h2><g:message code="default.create.label" args="[entityName]" /></h2>
+        <h2><g:message code="default.create.label" args="[entityName]"/></h2>
         <g:hasErrors bean="${entryInstance}">
             <ul class="errors" role="alert">
                 <g:eachError bean="${entryInstance}" var="error">

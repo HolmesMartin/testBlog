@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <g:render template="adminNav"></g:render>
     <div id="create-user" class="content scaffold-create" role="main">
         <h2><g:message code="default.create.label" args="[entityName]" /></h2>
         <g:hasErrors bean="${userInstance}">
