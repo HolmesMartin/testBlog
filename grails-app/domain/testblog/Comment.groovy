@@ -16,10 +16,7 @@ class Comment {
 	}
 
     static constraints = {
-		author()
-		content(maxSize:5000)
-		dateCreated()
-		lastUpdated()
+		content size: 0..5000
 	}
 
 	String toString(){

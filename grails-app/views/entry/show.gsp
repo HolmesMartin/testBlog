@@ -14,7 +14,7 @@
         <a href="#show-entry" class="skip" tabindex="-1">
             <g:message code="default.link.skip.label" default="Skip to content&hellip;" />
         </a>
-            <g:render template="adminNav" />
+        <g:render template="adminNav" />
         <div>
             <h2 id="blogTitle">
 			${entryInstance.title}
