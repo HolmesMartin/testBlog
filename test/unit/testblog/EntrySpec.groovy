@@ -3,9 +3,6 @@ package testblog
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
-/**
- * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
- */
 @TestFor(Entry)
 class EntrySpec extends Specification {
 	
@@ -17,17 +14,29 @@ class EntrySpec extends Specification {
 	def cleanup() {
 	}
 
-	void "test good entry constraints"() {
-		when: "test entry is made"
-			String title = 'Test Title'
-			String summary = 'This is a test blog, this should be just a test.'
-			String author = 'whomsoever'
-			entry = new Entry(title: title, summary: summary, author: author)
-			entry.save()
+	def "test entry constraints"() {		
+		when:
+			entry = new Entry(title:title, author:author, summary:summary)
 		
-		then: "test entry should match"
-			entry.title == title
-			entry.summary == summary
-			entry.author == author
+		then:
+			entry.validate()
+			
+		where:	
+			title	|	author	|	summary
+			"test"	|	"test"	|	"test"
+	}
+	
+	def "test bad entry constraints"() {		
+		when:
+			entry = new Entry(title:title, author:author, summary:summary)
+	
+		then:
+			!entry.validate()
+			
+		where:	
+			title	|	author	|	summary
+			""		|	"test"	|	"test"
+			"test1"	|	""		|	"test1"
+			"test2"	|	"test2"	|	""
 	}
 }
